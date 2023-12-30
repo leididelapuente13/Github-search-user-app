@@ -31,8 +31,9 @@ module.exports = {
     ecmaVersion: 'latest',
     sourceType: 'module'
   },
-  plugins:['react'],
+  plugins:['react', 'tailwindcss'],
   rules: {
-    'no-unused-vars': 'warn'
+    'no-unused-vars': 'warn', 
+    "tailwindcss/no-custom-classname": "off"
   }
 }
