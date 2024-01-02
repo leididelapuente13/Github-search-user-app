@@ -1,6 +1,7 @@
 import { UserCard } from "./components/UserCard";
 import iconMoon from './assets/img/icon-moon.svg'
 import iconSearch from './assets/img/icon-search.svg'
+import { useState } from "react";
 
 
 function App() {
@@ -18,7 +19,14 @@ function App() {
         twitter_username: "monatheoctocat",
         company: "GitHub"
 	}
-	return (
+
+    const [theme, setTheme] = useState("");
+
+    const handleUserSearch = () =>{
+
+    } 
+    
+    return (
 		<main className="px-3 py-4  flex flex-col justify-items-center max-w-xl w-full my-4 mx-auto lg:max-w-2xl">
             <header className="flex flex-row justify-between items-center mb-5">
                 <h2 className="text-github-300 text-3xl font-bold">devfinder</h2>

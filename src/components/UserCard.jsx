@@ -32,7 +32,7 @@ export const UserCard = ({ user }) => {
         <p className="font-bold text-github-600 text-xl">{user.following}</p>
       </div>
       <div className="leading-9 flex flex-col md:flex-row md:gap-24 md:justify-center lg:ml-28
-       lg:w-50 lg:gap-10 lg:pb-7">
+       lg:w-50 lg:gap-10 lg:pb-2">
         <div>
           <p>
             <img src={iconLocation} alt="location icon" /> {user.location}
