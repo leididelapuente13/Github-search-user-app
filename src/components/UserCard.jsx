@@ -22,8 +22,8 @@ export const UserCard = ({ user }) => {
           <p className="lg:text-right lg:col-start-2 lg:row-start-1 border-black">{`Joined ${user.created_at}`}</p>
         </div>
       </div>
-      <p className="my-2 lg:ml-36 lg:-mt-10">{user.bio}</p>
-      <div className="w-full my-4 grid grid-cols-3 gap-x-1 place-items-center rounded-lg bg-white-200 px-3 py-4 lg:w-3/4 lg:ml-36">
+      <p className="my-2 lg:ml-36 lg:-mt-10 lg:mb-8">{user.bio}</p>
+      <div className="w-full my-4 grid grid-cols-3 gap-x-1 place-items-center rounded-lg bg-white-200 px-3 py-4 lg:w-3/4 lg:ml-36 lg:mb-7">
         <p className="text-sm">Repos</p>
         <p className="text-sm">Followers</p>
         <p className="text-sm">Following</p>
@@ -32,7 +32,7 @@ export const UserCard = ({ user }) => {
         <p className="font-bold text-github-600 text-xl">{user.following}</p>
       </div>
       <div className="leading-9 flex flex-col md:flex-row md:gap-24 md:justify-center lg:ml-28
-       lg:w-50 lg:gap-10">
+       lg:w-50 lg:gap-10 lg:pb-7">
         <div>
           <p>
             <img src={iconLocation} alt="location icon" /> {user.location}
