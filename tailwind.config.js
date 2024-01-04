@@ -5,6 +5,7 @@ export default {
     "src/**/*.{js,jsx,tsx}",
     './src/assets/styles/index.css'
   ],
+  "darkMode": "class",
   theme: {
     extend: {
       colors: {

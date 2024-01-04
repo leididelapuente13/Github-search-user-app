@@ -1,44 +1,55 @@
 import { UserCard } from "./components/UserCard";
-import iconMoon from './assets/img/icon-moon.svg'
-import iconSearch from './assets/img/icon-search.svg'
+import iconMoon from "./assets/img/icon-moon.svg";
+import iconSearch from "./assets/img/icon-search.svg";
 import { useState } from "react";
 
-
 function App() {
-	const user = {
-		avatar_url: "https://i.pinimg.com/originals/88/f9/7b/88f97b667be99a794e956f8440ea60f2.jpg",
-		name: "monalisa octocat",
-        login: "octocat",
-        created_at: "1-30-2020",
-        bio: "There once was...",
-        public_repos: 2,
-        followers: 20,
-        following: 0,
-        location: "San Francisco",
-        blog: "https://github.com/blog",
-        twitter_username: "monatheoctocat",
-        company: "GitHub"
-	}
+  const user = {
+    avatar_url:
+      "https://i.pinimg.com/originals/88/f9/7b/88f97b667be99a794e956f8440ea60f2.jpg",
+    name: "monalisa octocat",
+    login: "octocat",
+    created_at: "1-30-2020",
+    bio: "There once was...",
+    public_repos: 2,
+    followers: 20,
+    following: 0,
+    location: "San Francisco",
+    blog: "https://github.com/blog",
+    twitter_username: "monatheoctocat",
+    company: "GitHub",
+  };
 
-    const [theme, setTheme] = useState("");
+  const [theme, setTheme] = useState("");
 
-    const handleUserSearch = () =>{
+  const handleUserSearch = () => {};
 
-    } 
-    
-    return (
-		<main className="px-3 py-4  flex flex-col justify-items-center max-w-xl w-full my-4 mx-auto lg:max-w-2xl">
-            <header className="flex flex-row justify-between items-center mb-5">
-                <h2 className="text-github-300 text-3xl font-bold">devfinder</h2>
-                <button className="text-github-300 uppercase font-bold">Dark <img src={iconMoon}/></button>
-            </header>
-            <div className="bg-white-100 mb-4 px-3 py-2 flex gap-1 light-shadow rounded-lg">
-                <img src={iconSearch} alt="" className="w-5 h-5 self-center"/>
-                <input type="text" placeholder= "Search GitHub username..." className="flex-grow w-3/5 outline-none text-github-300 placeholder:text-github-300 text-lg"/>
-                <button type="button" className="bg-github-200 h-10 min-w-fit py-1 px-3 text-white-100 rounded-lg font-bold hover:bg-github-100">Search</button>
-            </div>
-			<UserCard user={user}/>
-		</main>
-	);
+  return (
+    <div className="bg-white-200 min-h-screen font-mono text-github-300 border-solid border-white-200 border-2 dark:bg-github-500 dark:border-github-500">
+      <main className="mx-auto my-4 flex w-full max-w-xl flex-col justify-items-center px-3 py-4 lg:max-w-2xl">
+        <header className="mb-5 flex flex-row items-center justify-between">
+          <h2 className="text-3xl font-bold text-github-300">devfinder</h2>
+          <button className="font-bold uppercase text-github-300">
+            Dark <img src={iconMoon} />
+          </button>
+        </header>
+        <div className="light-shadow mb-4 flex gap-1 rounded-lg bg-white-100 px-3 py-2">
+          <img src={iconSearch} alt="" className="h-5 w-5 self-center" />
+          <input
+            type="text"
+            placeholder="Search GitHub username..."
+            className="w-3/5 flex-grow text-lg text-github-300 outline-none placeholder:text-github-300"
+          />
+          <button
+            type="button"
+            className="h-10 min-w-fit rounded-lg bg-github-200 px-3 py-1 font-bold text-white-100 hover:bg-github-100"
+          >
+            Search
+          </button>
+        </div>
+        <UserCard user={user} />
+      </main>
+    </div>
+  );
 }
 export default App;
