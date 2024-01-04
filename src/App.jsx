@@ -42,23 +42,23 @@ function App() {
   const handleUserSearch = () => {};
 
   return (
-    <div className="min-h-screen border-2 border-solid border-white-200 bg-white-200 font-mono text-github-300 dark:border-github-500 dark:bg-github-500">
+    <div className="min-h-screen text-github-300 border-2 border-solid border-white-200 bg-white-200 font-mono dark:border-github-500 dark:bg-github-500 dark:text-white-100">
       <main className="mx-auto my-4 flex w-full max-w-xl flex-col justify-items-center px-3 py-4 lg:max-w-2xl">
         <header className="mb-5 flex flex-row items-center justify-between">
-          <h2 className="text-3xl font-bold text-github-300">devfinder</h2>
+          <h2 className="text-3xl font-bold text-github-300 dark:text-white-100">devfinder</h2>
           <button
-            className="font-bold uppercase text-github-300"
+            className="font-bold uppercase text-github-300 dark:text-white-100"
             onClick={handleChangeTheme}
           >
-            Dark <img src={iconMoon} />
+            {theme === "light" ? "Dark" : "Light"} <img src={iconMoon} />
           </button>
         </header>
-        <div className="light-shadow mb-4 flex gap-1 rounded-lg bg-white-100 px-3 py-2">
+        <div className="light-shadow mb-4 flex gap-1 rounded-lg bg-white-100 px-3 py-2 dark:bg-github-400 dark:dark-shadow">
           <img src={iconSearch} alt="" className="h-5 w-5 self-center" />
           <input
             type="text"
             placeholder="Search GitHub username..."
-            className="w-3/5 flex-grow text-lg text-github-300 outline-none placeholder:text-github-300"
+            className="w-3/5 flex-grow text-lg text-github-300 outline-none placeholder:text-github-300 dark:bg-github-400 dark:text-white-100 dark:placeholder:text-white-100"
           />
           <button
             type="button"
