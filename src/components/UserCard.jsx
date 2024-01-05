@@ -31,6 +31,7 @@ export const UserCard = ({ user }) => {
         <p className="font-bold text-github-600 text-xl dark:text-white-100">{user.followers}</p>
         <p className="font-bold text-github-600 text-xl dark:text-white-100">{user.following}</p>
       </div>
+      {/* //TODO: add svg tags to change the color of the icons  */}
       <div className="leading-9 flex flex-col md:flex-row md:gap-24 md:justify-center lg:ml-28
        lg:w-50 lg:gap-10 lg:pb-2">
         <div>
@@ -42,7 +43,7 @@ export const UserCard = ({ user }) => {
           </a>
         </div>
         <div>
-          <p>
+          <p >
             <img src={iconTwitter} alt="twitter icon" /> {user.twitter_username}
           </p>
           <p>

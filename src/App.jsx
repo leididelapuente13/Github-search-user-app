@@ -1,5 +1,6 @@
 import { UserCard } from "./components/UserCard";
 import iconMoon from "./assets/img/icon-moon.svg";
+import iconSun from "./assets/img/icon-sun.svg";
 import iconSearch from "./assets/img/icon-search.svg";
 import { useEffect, useState } from "react";
 
@@ -46,11 +47,12 @@ function App() {
       <main className="mx-auto my-4 flex w-full max-w-xl flex-col justify-items-center px-3 py-4 lg:max-w-2xl">
         <header className="mb-5 flex flex-row items-center justify-between">
           <h2 className="text-3xl font-bold text-github-300 dark:text-white-100">devfinder</h2>
+        {/* //TODO: add svg tags to change the color of the icons  */}
           <button
             className="font-bold uppercase text-github-300 dark:text-white-100"
             onClick={handleChangeTheme}
           >
-            {theme === "light" ? "Dark" : "Light"} <img src={iconMoon} />
+            {theme === "light" ? "Dark" : "Light"} <img src={theme === "light" ? iconMoon : iconSun} />
           </button>
         </header>
         <div className="light-shadow mb-4 flex gap-1 rounded-lg bg-white-100 px-3 py-2 dark:bg-github-400 dark:dark-shadow">
