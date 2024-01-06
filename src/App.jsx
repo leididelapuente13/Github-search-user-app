@@ -47,8 +47,7 @@ function App() {
 
   const handleUserSearch = async (event, userName) => {
     event.preventDefault();
-    console.log(userName);
-    const key = "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";
+    const key = import.meta.env.VITE_REACT_APP_GITHUB_API_KEY;
     try {
       const response = await axios.get(`https://api.github.com/users/${userName}`, {
         headers: { 'Authorization': `Bearer ${key}`},
