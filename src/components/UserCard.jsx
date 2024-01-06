@@ -23,7 +23,7 @@ export const UserCard = ({ user }) => {
           <p className="lg:text-right lg:col-start-2 lg:row-start-1 border-black">{`Joined ${moment(user.created_at, "YYYY-MM-DDTHH:mm:ssZ").format("DD MMMM YYYY")}`}</p>
         </div>
       </div>
-      <p className="my-2 lg:ml-36 lg:-mt-10 lg:mb-8 dark:text-gray-400">{user.bio ? user.bio : "Not Available"}</p>
+      <p className="my-2 lg:ml-36 lg:-mt-10 lg:mb-8 dark:text-gray-400">{user.bio ? user.bio : "This profile has no bio"}</p>
       <div className="w-full my-4 grid grid-cols-3 gap-x-1 place-items-center rounded-lg bg-white-200 px-3 py-4 lg:w-3/4 lg:ml-36 lg:mb-7 dark:bg-github-500">
         <p className="text-sm">Repos</p>
         <p className="text-sm">Followers</p>
@@ -58,14 +58,14 @@ export const UserCard = ({ user }) => {
 
 UserCard.propTypes = {
   user: PropTypes.shape({
-    avatar_url: PropTypes.string.isRequired,
+    avatar_url: PropTypes.string,
     name: PropTypes.string,
-    login: PropTypes.string.isRequired,
-    created_at: PropTypes.string.isRequired,
+    login: PropTypes.string,
+    created_at: PropTypes.string,
     bio: PropTypes.string,
     public_repos: PropTypes.number,
-    followers: PropTypes.number.isRequired,
-    following: PropTypes.number.isRequired,
+    followers: PropTypes.number,
+    following: PropTypes.number,
     location: PropTypes.string,
     blog: PropTypes.string,
     twitter_username: PropTypes.string,

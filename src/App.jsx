@@ -7,24 +7,8 @@ import axios from "axios";
 
 function App() {
   const [userName, setUserName] = useState("");
-  const [userData, setUserData] = useState("");
+  const [userData, setUserData] = useState({});
   const [error, setError] = useState();
-
-  const user = {
-    avatar_url:
-      "https://i.pinimg.com/originals/88/f9/7b/88f97b667be99a794e956f8440ea60f2.jpg",
-    name: "monalisa octocat",
-    login: "octocat",
-    created_at: "2009-04-25T19:38:52Z",
-    bio: "There once was...",
-    public_repos: 2,
-    followers: 20,
-    following: 0,
-    location: "San Francisco",
-    blog: "https://github.com/blog",
-    twitter_username: "monatheoctocat",
-    company: "GitHub",
-  };
 
   const [theme, setTheme] = useState(() => {
     if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
@@ -46,7 +30,9 @@ function App() {
   }, [theme]);
 
   const handleUserSearch = async (event, userName) => {
-    event.preventDefault();
+    if(event){
+      event.preventDefault();
+    }
     const key = import.meta.env.VITE_REACT_APP_GITHUB_API_KEY;
     try {
       const response = await axios.get(`https://api.github.com/users/${userName}`, {
@@ -59,6 +45,11 @@ function App() {
       setError(error);
     }
   };
+
+  useEffect(() => {
+    handleUserSearch(null, "leidi2004");
+  }, []);
+  
 
   return (
     <div className="min-h-screen border-2 border-solid border-white-200 bg-white-200 font-mono text-github-300 dark:border-github-500 dark:bg-github-500 dark:text-white-100">
@@ -102,7 +93,7 @@ function App() {
             Search
           </button>
         </form>
-        <UserCard user={userData === "" ? user : userData} />
+        <UserCard user={userData} />
       </main>
     </div>
   );
