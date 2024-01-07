@@ -46,15 +46,15 @@ function App() {
       const response = await axios.get(
         `https://api.github.com/users/${userName}`,
         {
-          headers: { Authorization: `Bearer ${key}` },
+          headers: { Authorization: `Bearer ${key}`, 
+        },
         },
       );
       setUserData(response.data);
       setUserName("");
-      console.log(key);
     } catch (error) {
       setError(error);
-      console.error(error)
+      console.error(error);
     }
   };
 
