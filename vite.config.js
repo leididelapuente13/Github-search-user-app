@@ -3,5 +3,5 @@ import react from '@vitejs/plugin-react'
 
 export default defineConfig({
   plugins: [react()],
-  base: '/Github-search-user-app/'
+  base: process.env.NODE_ENV === 'production' ? '/Github-search-user-app/' : '/',
 })
