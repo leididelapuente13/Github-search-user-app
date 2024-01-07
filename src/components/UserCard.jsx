@@ -8,47 +8,68 @@ import PropTypes from "prop-types";
 
 export const UserCard = ({ user }) => {
   return (
-    <div className="light-shadow rounded-xl bg-white-100 px-5 pt-4 pb-5 dark:bg-github-400 dark:dark-shadow">
-      <div className="mb-2 flex items-center gap-6 py-1 lg:gap-x-8 lg:mb-0 lg">
+    <div className="light-shadow dark:dark-shadow rounded-xl bg-white-100 px-5 pb-5 pt-4 dark:bg-github-400">
+      <div className="lg mb-2 flex items-center gap-6 py-1 lg:mb-0 lg:gap-x-8">
         <img
           src={user.avatar_url}
           alt="icon"
           className="w-3/12 max-w-28 rounded-full"
         />
-        <div className="w-full grid lg:grid-cols-2 lg:-mt-10 lg:mb-0">
+        <div className="grid w-full lg:-mt-10 lg:mb-0 lg:grid-cols-2">
           <div>
-          <p className="text-lg font-semibold text-github-600 dark:text-white-100">{user.name ? user.name : "Not available"}</p>
-          <p className="text-github-200">{user.login}</p>
+            <p className="text-lg font-semibold text-github-600 dark:text-white-100">
+              {user.name ? user.name : "Not available"}
+            </p>
+            <p className="text-github-200">{user.login}</p>
           </div>
-          <p className="lg:text-right lg:col-start-2 lg:row-start-1 border-black">{`Joined ${moment(user.created_at, "YYYY-MM-DDTHH:mm:ssZ").format("DD MMMM YYYY")}`}</p>
+          <p className="border-black lg:col-start-2 lg:row-start-1 lg:text-right">{`Joined ${moment(
+            user.created_at,
+            "YYYY-MM-DDTHH:mm:ssZ",
+          ).format("DD MMMM YYYY")}`}</p>
         </div>
       </div>
-      <p className="my-2 lg:ml-36 lg:-mt-10 lg:mb-8 dark:text-gray-400">{user.bio ? user.bio : "This profile has no bio"}</p>
-      <div className="w-full my-4 grid grid-cols-3 gap-x-1 place-items-center rounded-lg bg-white-200 px-3 py-4 lg:w-3/4 lg:ml-36 lg:mb-7 dark:bg-github-500">
+      <p className="my-2 lg:-mt-10 lg:mb-8 lg:ml-36 dark:text-gray-400">
+        {user.bio ? user.bio : "This profile has no bio"}
+      </p>
+      <div className="my-4 grid w-full grid-cols-3 place-items-center gap-x-1 rounded-lg bg-white-200 px-3 py-4 lg:mb-7 lg:ml-36 lg:w-3/4 dark:bg-github-500">
         <p className="text-sm">Repos</p>
         <p className="text-sm">Followers</p>
         <p className="text-sm">Following</p>
-        <p className="font-bold text-github-600 text-xl dark:text-white-100">{user.public_repos}</p>
-        <p className="font-bold text-github-600 text-xl dark:text-white-100">{user.followers}</p>
-        <p className="font-bold text-github-600 text-xl dark:text-white-100">{user.following}</p>
+        <p className="text-xl font-bold text-github-600 dark:text-white-100">
+          {user.public_repos}
+        </p>
+        <p className="text-xl font-bold text-github-600 dark:text-white-100">
+          {user.followers}
+        </p>
+        <p className="text-xl font-bold text-github-600 dark:text-white-100">
+          {user.following}
+        </p>
       </div>
       {/* //TODO: add svg tags to change the color of the icons  */}
-      <div className="leading-9 flex flex-col md:flex-row md:gap-24 md:justify-center lg:ml-28
-       lg:w-50 lg:gap-10 lg:pb-2">
+      <div
+        className="lg:w-50 flex flex-col leading-9 md:flex-row md:justify-center md:gap-24
+       lg:ml-28 lg:gap-10 lg:pb-2"
+      >
         <div>
           <p>
-            <img src={iconLocation} alt="location icon"/> {user.location ? user.location : "Not available"}
+            <img src={iconLocation} alt="location icon" />{" "}
+            {user.location ? user.location : "Not available"}
           </p>
           <a href={user.blog} target="_blank" rel="noreferrer">
-            <img src={iconWebsite} alt="link icon" /> {user.blog ? user.blog : "Not available"}
+            <img src={iconWebsite} alt="link icon" />{" "}
+            {user.blog ? user.blog : "Not available"}
           </a>
         </div>
         <div>
-          <p >
-            <img src={iconTwitter} alt="twitter icon" /> {user.twitter_username ? `@${user.twitter_username}` : "Not available"}
+          <p>
+            <img src={iconTwitter} alt="twitter icon" />{" "}
+            {user.twitter_username
+              ? `@${user.twitter_username}`
+              : "Not available"}
           </p>
           <p>
-            <img src={iconCompany} alt="building icon" /> {user.company ? user.company : "Not available"}
+            <img src={iconCompany} alt="building icon" />{" "}
+            {user.company ? user.company : "Not available"}
           </p>
         </div>
       </div>

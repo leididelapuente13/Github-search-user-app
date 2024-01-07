@@ -51,8 +51,10 @@ function App() {
       );
       setUserData(response.data);
       setUserName("");
+      console.log(key);
     } catch (error) {
       setError(error);
+      console.error(error)
     }
   };
 
