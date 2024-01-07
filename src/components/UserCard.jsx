@@ -1,8 +1,8 @@
 import moment from "moment";
-import iconCompany from "../assets/img/icon-company.svg";
-import iconLocation from "../assets/img/icon-location.svg";
-import iconTwitter from "../assets/img/icon-twitter.svg";
-import iconWebsite from "../assets/img/icon-website.svg";
+import iconCompany from "../assets/img/icon/icon-company.svg";
+import iconLocation from "../assets/img/icon/icon-location.svg";
+import iconTwitter from "../assets/img/icon/icon-twitter.svg";
+import iconWebsite from "../assets/img/icon/icon-website.svg";
 
 import PropTypes from "prop-types";
 

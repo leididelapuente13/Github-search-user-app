@@ -1,7 +1,7 @@
 import { UserCard } from "./components/UserCard";
-import iconMoon from "./assets/img/icon-moon.svg";
-import iconSun from "./assets/img/icon-sun.svg";
-import iconSearch from "./assets/img/icon-search.svg";
+import iconMoon from "./assets/img/icon/icon-moon.svg";
+import iconSun from "./assets/img/icon/icon-sun.svg";
+import iconSearch from "./assets/img/icon/icon-search.svg";
 import { useEffect, useState } from "react";
 import axios from "axios";
 
@@ -11,15 +11,21 @@ function App() {
   const [error, setError] = useState();
 
   const [theme, setTheme] = useState(() => {
-    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-      return "dark";
+    if (localStorage.getItem("theme") !== null) {
+      return localStorage.getItem("theme");
+    } else {
+      if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        return "dark";
+      }
+      return "light";
     }
-    return "light";
   });
 
   const handleChangeTheme = () => {
     setTheme((theme) => (theme === "light" ? "dark" : "light"));
   };
+
+  localStorage.setItem("theme", theme);
 
   useEffect(() => {
     if (theme === "dark") {
@@ -30,18 +36,22 @@ function App() {
   }, [theme]);
 
   const handleUserSearch = async (event, userName) => {
-    if(event){
+    if (event) {
       event.preventDefault();
     }
+
     const key = import.meta.env.VITE_REACT_APP_GITHUB_API_KEY;
+
     try {
-      const response = await axios.get(`https://api.github.com/users/${userName}`, {
-        headers: { 'Authorization': `Bearer ${key}`},
-      });
-      setUserData(response.data); 
+      const response = await axios.get(
+        `https://api.github.com/users/${userName}`,
+        {
+          headers: { Authorization: `Bearer ${key}` },
+        },
+      );
+      setUserData(response.data);
       setUserName("");
     } catch (error) {
-      console.error(error);
       setError(error);
     }
   };
@@ -49,7 +59,6 @@ function App() {
   useEffect(() => {
     handleUserSearch(null, "leidi2004");
   }, []);
-  
 
   return (
     <div className="min-h-screen border-2 border-solid border-white-200 bg-white-200 font-mono text-github-300 dark:border-github-500 dark:bg-github-500 dark:text-white-100">
@@ -58,7 +67,6 @@ function App() {
           <h2 className="text-3xl font-bold text-github-300 dark:text-white-100">
             devfinder
           </h2>
-          {/* //TODO: add svg tags to change the color of the icons  */}
           <button
             className="font-bold uppercase text-github-300 dark:text-white-100"
             onClick={handleChangeTheme}
@@ -67,11 +75,11 @@ function App() {
             <img src={theme === "light" ? iconMoon : iconSun} />
           </button>
         </header>
-        {error && <div className="text-red-600 mb-2 flex justify-end text-xs dark:text-red-400">
-          <p>
-            User does not exist
-          </p>
-        </div>}
+        {error && (
+          <div className="mb-2 flex justify-end text-xs text-red-600 dark:text-red-400">
+            <p>User does not exist</p>
+          </div>
+        )}
         <form
           onSubmit={(e) => {
             handleUserSearch(e, userName);
