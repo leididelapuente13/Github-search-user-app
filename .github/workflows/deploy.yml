@@ -17,8 +17,6 @@ jobs:
         run: npm install
 
       - name: Build and deploy
-        run: |
-          cp .env.production .env
-          npm run build
+        run: npm run build
         env:
-          VITE_REACT_APP_GITHUB_API_KEY: ${{ secrets.TOKEN_GITHUB }}
+          REACT_APP_GITHUB_API_KEY: ${{ secrets.TOKEN_GITHUB }}
