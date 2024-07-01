@@ -118,6 +118,6 @@ dark mode
 ```
 
 ## Author
-- Frontend Mentor - [@leidi2004](https://www.frontendmentor.io/profile/leididelapuente13)
+- Frontend Mentor - [@leididelapuente13]https://www.frontendmentor.io/profile/leididelapuente13)
 
 
