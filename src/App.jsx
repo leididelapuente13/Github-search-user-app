@@ -59,7 +59,7 @@ function App() {
   };
 
   useEffect(() => {
-    handleUserSearch(null, "leidi2004");
+    handleUserSearch(null, "leididelapuente13");
   }, []);
 
   return (
